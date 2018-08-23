@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SignUpModel } from './models/signup.model';
-import { SignInModel } from './models/signin.model';
+import { RegisterModel } from './models/register.model';
+import { LoginModel } from './models/login.model';
 
 const appKey = "kid_B1uNxw987";
 const registerUrl = `https://baas.kinvey.com/user/${appKey}`;
@@ -12,16 +12,16 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`;
 export class AuthService {
   constructor(private http : HttpClient) {  }
 
-  register(body : SignUpModel) {
+  register(body : RegisterModel) {
     return this.http.post(registerUrl, body);
   }
 
-  login(body : SignInModel) {
+  login(body : LoginModel) {
     return this.http.post(loginUrl, body);
   }
 
   logout() {
-    localStorage.clear();
+    return this.http.post(logoutUrl,{})
   }
 
   isAuthenticated() : boolean {

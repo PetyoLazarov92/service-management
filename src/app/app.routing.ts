@@ -10,8 +10,8 @@ import { SignupComponent } from './authentication/signup/signup.component';
 const routes : Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: SigninComponent },
+  { path: 'register', component: SignupComponent },
   // { path: 'furniture', loadChildren: () => FurnitureModule},
   { path: '**', redirectTo: '/home' }
 ]

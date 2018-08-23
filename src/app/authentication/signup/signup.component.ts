@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUpModel } from '../models/signup.model';
+import { RegisterModel } from '../models/register.model';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,19 +8,27 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  model : SignUpModel;
+  model : RegisterModel;
+  loading: boolean = false;
+  hide: boolean = false;
 
   constructor(private authService : AuthService) { 
-    this.model = new SignUpModel("", "", "");
+    this.model = new RegisterModel("", "", "","","");
   }
 
   ngOnInit() {
   }
 
-  signUp() {
+  register() {
+    delete this.model['confirmPassword'];
+    this.hide = true;
+    this.loading = true;
     this.authService
       .register(this.model)
-      .subscribe();
+      .subscribe(d =>{},err =>{
+        this.hide = false;
+        this.loading = false;
+      });
   }
 
 }

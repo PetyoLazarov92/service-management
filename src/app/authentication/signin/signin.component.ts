@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignInModel } from '../models/signin.model';
+import { LoginModel } from '../models/login.model';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,19 +8,26 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  model : SignInModel;
+  model : LoginModel;
+  loading: boolean = false;
+  hide: boolean = false;
 
   constructor(private authService : AuthService) {
-    this.model = new SignInModel("", "");
+    this.model = new LoginModel("", "");
   }
 
   ngOnInit() {
   }
 
-  signIn() {
+  login() {
+    this.hide = true;
+    this.loading = true;
     this.authService
       .login(this.model)
-      .subscribe();
+      .subscribe(d =>{},err =>{
+        this.hide = false;
+        this.loading = false;
+      });
   }
 
 }

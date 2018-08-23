@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -11,7 +12,7 @@ import { AuthModule } from './authentication/auth.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
-import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { KinveyInterceptor } from './interceptors/kinvey.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 
@@ -22,6 +23,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     HomeComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -39,7 +41,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
+      useClass: KinveyInterceptor,
       multi: true
     },
     {
