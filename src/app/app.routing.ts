@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrdersModule } from './orders/orders.module';
+import { ClientsModule } from './clients/clients.module';
 
 // Components
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,7 @@ const routes : Routes = [
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
   { path: 'orders', loadChildren: () => OrdersModule},
+  { path: 'clients', loadChildren: () => ClientsModule},
   { path: '**', redirectTo: '/home' }
 ]
 
