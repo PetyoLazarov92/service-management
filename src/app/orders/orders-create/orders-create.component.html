@@ -1,0 +1,128 @@
+<h1 class="card-title">Create New Order</h1>
+<hr>
+<form action="">
+<div class="row">
+  <div class="col-md-6" style="padding=0.5em;">
+      <div class="card">
+          <div class="card-body">
+              <h2 class="card-title">Client</h2>
+              <div class="form-group">
+                <label for="name" class="col-form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Petyo Lazarov" required>
+              </div>
+              <div class="form-group">
+                <label for="address" class="col-form-label">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Stara Zagora, Tri Chuchura 40" required>
+              </div>
+              <div class="form-group">
+                  <label for="tel" class="col-form-label">Phone number</label>
+                  <input type="text" class="form-control" id="tel" placeholder="+33 6 99 99 99 99" required>
+                </div>
+              <div class="form-group">
+                <label for="email" class="col-form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+            </div>
+          </div>
+      </div>
+  </div>
+      
+  <div class="col-md-6">
+      <div class="card"> 
+          <div class="card-body">
+              <h2 class="card-title">Device</h2>
+              <div class="form-group">
+                <label for="warranty">Warranty</label>
+                <select name='warranty' class='form-control'>
+                    <option value="warranty">There is a guarantee</option>
+                    <option value="withoutWarranty">There is no guarantee</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select name='type' class='form-control'>
+                    <option value="computer">Computer</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="monitor">Monitor</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="phone">Phone</option>
+                    <option value="printer">Printer</option>
+                    <option value="scaner">Scaner</option>
+                    <option value="mfu">MFU</option>
+                    <option value="router">Router</option>
+                    <option value="other">Other</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="brand" class="col-form-label">Brand</label>
+                    <input type="text" class="form-control" id="brand" placeholder="Lenovo, Dell, HP" required>
+                </div>
+                <div class="form-group">
+                    <label for="model" class="col-form-label">Model</label>
+                    <input type="text" class="form-control" id="model" placeholder="d 630, ideapad 320" required>
+                </div>
+                <div class="form-group">
+                    <label for="serial" class="col-form-label">S/N</label>
+                    <input type="text" class="form-control" id="serial" placeholder="F32GTS665442" required>
+                </div>
+                <div class="form-group">
+                    <label for="equipment" class="col-form-label">Equipment</label>
+                    <input type="text" class="form-control" id="equipment" placeholder="Mouse, Adapter, Box" required>
+                </div>
+                <div class="form-group">
+                    <label for="appearance" class="col-form-label">Appearance and condition</label>
+                    <input type="text" class="form-control" id="appearance" placeholder="Traces of use" required>
+                </div>
+          </div>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6" style="padding=0.5em;">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Order information</h2>
+                <div class="form-group">
+                  <label for="description" class="col-form-label">Description of the problem by the client</label>
+                  <input type="text" class="form-control" id="description" placeholder="does not turn on, flashes the screen" required>
+                </div>
+                <div class="form-group">
+                  <label for="reqServices" class="col-form-label">Requested services</label>
+                  <input type="text" class="form-control" id="reqServices" placeholder="cleaning" required>
+                </div>
+                <div class="form-group">
+                  <label for="notes" class="col-form-label">Notes</label>
+                  <input type="text" class="form-control" id="notes" placeholder="goes a second time" required>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="col-md-6">
+        <div class="card"> 
+            <div class="card-body">
+                <h2 class="card-title">Others</h2>
+                <div class="form-group">
+                  <label for="priority">Priority</label>
+                  <select name='priority' class='form-control'>
+                      <option value="normal">Normal</option>
+                      <option value="important">Important</option>
+                      <option value="urgent">Urgent</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="assignedTo">Assigned to</label>
+                    <select name='assignedTo' class='form-control'>
+                        <option value="tech1">t1</option>
+                        <option value="tech2">t2</option>
+                        <option value="tech3">t3</option>
+                    </select>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<div style="margin-top: 1em;">
+  <button type="button" class="btn btn-primary btn-lg btn-block">Save</button>
+</div>
+</form>

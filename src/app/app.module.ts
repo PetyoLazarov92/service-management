@@ -14,13 +14,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { KinveyInterceptor } from './interceptors/kinvey.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
