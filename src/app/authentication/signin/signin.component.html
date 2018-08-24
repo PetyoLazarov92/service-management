@@ -4,7 +4,7 @@
         <div class="center mt-5" *ngIf="loading">
             <app-loader [loading]="loading"></app-loader>
         </div>
-        <h1 [hidden]='hide' >Login Form</h1>
+        <h1 [hidden]='hide' >Login</h1>
         <form [hidden]='hide' #loginForm='ngForm' (ngSubmit)='login()'>
           <div class="form-group">
             <label for="username">Username</label>

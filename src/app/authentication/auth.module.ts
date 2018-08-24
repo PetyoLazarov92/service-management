@@ -3,19 +3,16 @@ import { authComponents } from ".";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { AuthService } from "./auth.service";
-import { LoaderComponent } from '../shared/loader/loader.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [
-        ...authComponents,
-        LoaderComponent
+        ...authComponents
     ],
     imports: [
         FormsModule,
-        CommonModule
-    ],
-    exports: [
-        LoaderComponent
+        CommonModule,
+        SharedModule
     ],
     providers: [
         AuthService

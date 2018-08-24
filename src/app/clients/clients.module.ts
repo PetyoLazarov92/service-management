@@ -9,12 +9,14 @@ import { ClientsService } from './clients.service';
 
 //Components
 import { clientsComponents } from '.';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ClientsRoutingModule
+    ClientsRoutingModule,
+    SharedModule
   ],
   declarations: [
     ...clientsComponents

@@ -1,19 +1,30 @@
-<h2 class="card-title">Create New Client</h2>
-<form action="">
-    <div class="row">
+<h2 [hidden]='hide' class="card-title">New Client</h2>
+{{model | json}}
+
+<div class="row">
 
 <div class="col-lg-6 mx-auto" >
-    <div class="card">
+        <div class="center mt-5" *ngIf="loading">
+                <app-loader [loading]="loading"></app-loader>
+            </div>
+    <div [hidden]='hide' class="card">
+        <form #clientForm='ngForm' (ngSubmit)='newClient()'>
         <div class="card-body">
-            <h2 class="card-title">Client</h2>
             <div class="form-group">
               <label for="name" class="col-form-label">Name</label>
               <div class="input-group">
                   <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" id="name"required>
+                  <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="model.name"
+                    name="name"
+                    #name='ngModel'>
               </div>
+              <div [hidden]='name.valid || name.pristine' class="alert alert-danger">
+                    Field 'Name' is required!
+                </div>
             </div>
             <div class="form-group">
               <label for="address" class="col-form-label">Address</label>
@@ -21,16 +32,22 @@
                   <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-address-card-o"></i></span>
                   </div>
-                  <input type="text" class="form-control" id="address" required>
+                  <input type="text" class="form-control" id="address"
+                  [(ngModel)]="model.address"
+                    name="address"
+                    #address='ngModel'>
               </div>
             </div>
             <div class="form-group">
-                <label for="tel" class="col-form-label">Phone number</label>
+                <label for="phone" class="col-form-label">Phone number</label>
                 <div class="input-group">
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-phone"></i></span>
                       </div>
-                      <input type="text" class="form-control" id="tel"required>
+                      <input type="text" class="form-control" id="phone"
+                      [(ngModel)]="model.phone"
+                    name="phone"
+                    #phone='ngModel'>
                   </div>
               </div>
             <div class="form-group">
@@ -39,14 +56,18 @@
                   <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                   </div>
-                  <input type="email" class="form-control" id="email"required>
+                  <input type="email" class="form-control" id="email"
+                  [(ngModel)]="model.email"
+                    name="email"
+                    #email='ngModel'>
               </div>
           </div>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Save</button>
+            <button [disabled]='clientForm.form.invalid' type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
           </div>
+        </form>
     </div>
+
 </div>
 </div>
-</form>
