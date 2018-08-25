@@ -12,8 +12,8 @@
                        <th>Address</th>
                        <th>Email</th>
                        <th>Phone</th>
-                        <th>Edit</th>                        
-                         <th>Delete</th>
+                        <th>Orders</th>                        
+                         <th>Actions</th>
                      </thead>
       <tbody>
       <tr *ngFor="let c of clients | async| paginate: {
@@ -25,8 +25,11 @@
       <td>{{c.address}}</td>
       <td>{{c.email}}</td>
       <td>{{c.phone}}</td>
-      <td><p title="Edit"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></p></td>
-      <td><p title="Delete"><button class="btn btn-danger btn-xs" (click)="deleteItem(c._id)"><i class="fa fa-trash-o fa-lg"></i></button></p></td>
+      <td>{{c.orders | json}}</td>
+      <td class="d-flex justify-content-center">
+        <p title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></p>  
+        <p title="Delete" ><button class="btn btn-danger btn-xs" (click)="deleteItem(c._id)"><i class="fa fa-trash-o fa-lg"></i></button></p>
+    </td>
       </tr>
       </tbody>
           

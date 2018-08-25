@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderModel } from '../models/order.model';
+import { Observable } from 'rxjs';
+import { OrdersService } from '../orders.service';
+import { AuthService } from '../../authentication/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-orders-all',
@@ -6,10 +11,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-all.component.css']
 })
 export class OrdersAllComponent implements OnInit {
+  orders : Observable<OrderModel[]>;
+  pageSize: number = 5;
+  currentPage: number = 1;
 
-  constructor() { }
+  constructor(
+    private ordersService : OrdersService,
+    private authService: AuthService,
+    private toastr:ToastrService
+  ) { }
 
   ngOnInit() {
+    this.orders = this.ordersService.getAllOrders();
   }
 
+  changePage(page){
+    this.currentPage = page;
+  }
 }

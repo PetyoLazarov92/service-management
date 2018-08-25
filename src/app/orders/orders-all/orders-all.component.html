@@ -1,1 +1,58 @@
-<h1>All orders</h1>
+<div class="container">
+    <div class="row">         
+          <div class="col-md-12">
+          <h2>All Orders</h2>
+          <div class="table-responsive">
+  
+                  
+                <table id="mytable" class="table table-bordred table-striped">
+                     
+                     <thead>
+                     <th>Type</th>
+                       <th>Brand</th>
+                       <th>Model</th>
+                       <th>S/N</th>
+                        <th>Description</th>                        
+                         <th>Actions</th>
+                     </thead>
+      <tbody>
+      <tr *ngFor="let o of orders | async| paginate: {
+        id: 'allClients',
+        itemsPerPage: pageSize,
+        currentPage: currentPage
+      }">
+      <td>{{o.type}}</td>
+      <td>{{o.brand}}</td>
+      <td>{{o.deviceModel}}</td>
+      <td>{{o.serial}}</td>
+      <td>{{o.description}}</td>
+      <td class="d-flex justify-content-center">
+        <a routerLink="../details/{{o._id}}" title="Details" class="mr-1"><button class="btn btn-info btn-xs" ><i class="fa fa-info-circle fa-lg"></i></button></a>
+        <p title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></p>
+        <p title="Delete"><button class="btn btn-danger btn-xs" (click)="deleteItem(o._id)"><i class="fa fa-trash-o fa-lg"></i></button></p>
+    </td>
+      </tr>
+      </tbody>
+          
+  </table>
+  
+ 
+                  
+              </div>
+              
+          </div>
+    </div>
+    <pagination-controls
+            id="allClients"
+            (pageChange)="changePage($event)"
+            maxSize="9"
+            directionLinks="true"
+            autoHide="true"
+            responsive="true"
+            previousLabel="Prev"
+            nextLabel="Next"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+  </div>

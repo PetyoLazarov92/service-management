@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrdersRoutingModule } from './orders-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //Components
 import { ordersComponents } from '.';
@@ -19,7 +20,8 @@ import { ClientsService } from '../clients/clients.service';
   imports: [
     CommonModule,
     FormsModule,
-    OrdersRoutingModule
+    OrdersRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     OrdersService,

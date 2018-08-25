@@ -10,7 +10,7 @@ Order: {{order | json}} <br>
               <h2 class="card-title">Client</h2>
               <div class="form-group">
                 <label for="existingClient">Existing Client</label>
-                <select name='existingClient' class='form-control'
+                <select name='existingClient' class='form-control selectpicker'
                 [(ngModel)]="order.client"
                 #existingClient='ngModel'
                 >
