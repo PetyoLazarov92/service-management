@@ -10,7 +10,7 @@ import { OrdersDetailsComponent } from './orders-details/orders-details.componen
 export const ordersRoutes : Routes = [
     { path: 'create', component: OrdersCreateComponent },
     { path: 'all', component: OrdersAllComponent },
-    { path: 'details/:id', component: OrdersDetailsComponent },
+    { path: 'details/:id', component: OrdersDetailsComponent }
 ]
 
 @NgModule({

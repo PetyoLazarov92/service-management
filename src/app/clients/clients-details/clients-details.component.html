@@ -1,0 +1,27 @@
+<div *ngIf="client | async as c" class="container">      
+    <div class="col-md-12">
+    <h2>Detils for: <span class="font-italic text-info">{{c.name}}</span></h2>
+    <hr>
+<div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="about-item text-left">
+            <h3>Client Info</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Name:  </strong><span class="text-right" >{{c.name}}</span></li>
+                <li class="list-group-item"><strong>Phone: </strong><span class="text-right" >{{c.phone}}</span></li>
+                <li class="list-group-item"><strong>Address: </strong><span class="text-right" >{{c.address}}</span></li>
+                <li class="list-group-item"><strong>Email: </strong><span class="text-right" >{{c.email}}</span></li>
+              </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+          <div class="about-item text-left">
+              <h3>Orders</h3>
+              <ul class="list-group">
+                  <li class="list-group-item"><strong>Orders:  </strong><span class="text-right" >{{c.orders | json}}</span></li>
+                </ul>
+          </div>
+        </div>
+</div>
+</div>
+</div>
