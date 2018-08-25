@@ -14,7 +14,7 @@ export class ClientsCreateComponent implements OnInit {
   hide: boolean = false;
 
   constructor(private clientsService : ClientsService, private router: Router) { 
-    this.model = new ClientModel("","","","","");
+    this.model = new ClientModel("","",[],"","");
   }
 
   ngOnInit() {

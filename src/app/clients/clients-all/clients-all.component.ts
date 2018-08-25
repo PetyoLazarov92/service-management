@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ClientsAllComponent implements OnInit {
   clients : Observable<ClientModel[]>;
-  pageSize: number = 3;
+  pageSize: number = 5;
   currentPage: number = 1;
 
   constructor(

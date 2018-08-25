@@ -9,6 +9,17 @@ Order: {{order | json}} <br>
           <div class="card-body">
               <h2 class="card-title">Client</h2>
               <div class="form-group">
+                <label for="existingClient">Existing Client</label>
+                <select name='existingClient' class='form-control'
+                [(ngModel)]="order.client"
+                #existingClient='ngModel'
+                >
+                    <option class="bg-success text-white" value="newClient">New Client</option>
+                    <option  *ngFor="let c of clients | async" value={{c._id}} >{{c.name}}</option>
+                </select>
+              </div>
+              <div *ngIf="order.client === 'newClient'">
+              <div class="form-group">
                 <label for="name" class="col-form-label">Name</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -62,6 +73,7 @@ Order: {{order | json}} <br>
                     [(ngModel)]="client.email"
                     name="email"
                     #email='ngModel'>
+                </div>
                 </div>
             </div>
           </div>
