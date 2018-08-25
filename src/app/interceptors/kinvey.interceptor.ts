@@ -42,6 +42,7 @@ export class KinveyInterceptor implements HttpInterceptor{
         return next.handle(request)
             .pipe(tap((res : any) => {
                 console.log(res);
+                //AuthService Handling
                 if(res instanceof HttpResponse && res.status === 200 && res.url.endsWith('/login')) {
                     this.saveAuthToken(res.body);
                     this.toastr.success("login successful", "Success!");
@@ -57,6 +58,14 @@ export class KinveyInterceptor implements HttpInterceptor{
                     localStorage.clear();
                     this.toastr.success('logaout successful', "Success!");
                     this.router.navigate(['/login']);
+                }
+                //ClientService handling
+                if(res instanceof HttpResponse && res.status === 201 && res.url.endsWith('/clients')) {
+                    this.toastr.success("New client added successfully!", "Success!");
+                }
+                //OrderService handling
+                if(res instanceof HttpResponse && res.status === 201 && res.url.endsWith('/orders')) {
+                    this.toastr.success("New order added successfully!", "Success!");
                 }
             }));
     }

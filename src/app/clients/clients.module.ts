@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClientsRoutingModule } from './clients-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //Services
 import { ClientsService } from './clients.service';
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     ClientsRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   declarations: [
     ...clientsComponents

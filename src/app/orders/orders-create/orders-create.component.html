@@ -1,6 +1,8 @@
 <h2 class="card-title">Create New Order</h2>
+Client:{{client | json}} <br>
+Order: {{order | json}} <br>
 <hr>
-<form action="">
+<form #orderForm='ngForm' (ngSubmit)='newOrder()'>
 <div class="row">
   <div class="col-md-6" style="padding=0.5em;">
       <div class="card">
@@ -12,7 +14,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="name"required>
+                    <input type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="client.name"
+                    name="name"
+                    #name='ngModel'>
+                </div>
+                <div [hidden]='name.valid || name.pristine' class="alert alert-danger">
+                    Client Name is required!
                 </div>
               </div>
               <div class="form-group">
@@ -21,7 +30,10 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-address-card-o"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="address" required>
+                    <input type="text" class="form-control" id="address"
+                    [(ngModel)]="client.address"
+                    name="address"
+                    #address='ngModel'>
                 </div>
               </div>
               <div class="form-group">
@@ -30,7 +42,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="tel"required>
+                        <input type="text" class="form-control" id="tel"
+                        required
+                        [(ngModel)]="client.phone"
+                        name="phone"
+                        #phone='ngModel'>
+                    </div>
+                    <div [hidden]='phone.valid || phone.pristine' class="alert alert-danger">
+                        Phone is required!
                     </div>
                 </div>
               <div class="form-group">
@@ -39,7 +58,10 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="email"required>
+                    <input type="email" class="form-control" id="email"
+                    [(ngModel)]="client.email"
+                    name="email"
+                    #email='ngModel'>
                 </div>
             </div>
           </div>
@@ -52,14 +74,20 @@
               <h2 class="card-title">Device</h2>
               <div class="form-group">
                 <label for="warranty">Warranty</label>
-                <select name='warranty' class='form-control'>
-                    <option value="warranty">There is a guarantee</option>
+                <select name='warranty' class='form-control'
+                [(ngModel)]="order.warranty"
+                #warranty='ngModel'
+                >
+                    <option value="haveWarranty">There is a guarantee</option>
                     <option value="withoutWarranty">There is no guarantee</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="type">Type</label>
-                <select name='type' class='form-control'>
+                <label for="type">Device Type</label>
+                <select name='type' class='form-control'
+                required
+                [(ngModel)]="order.type"
+                #type='ngModel'>
                     <option value="computer">Computer</option>
                     <option value="laptop">Laptop</option>
                     <option value="monitor">Monitor</option>
@@ -71,26 +99,56 @@
                     <option value="router">Router</option>
                     <option value="other">Other</option>
                 </select>
+                <div [hidden]='type.valid || type.pristine' class="alert alert-danger">
+                    Device type is required!
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="brand" class="col-form-label">Brand</label>
-                    <input type="text" class="form-control" id="brand" placeholder="Lenovo, Dell, HP" required>
+                    <input type="text" class="form-control" id="brand" placeholder="ex.: Lenovo, Dell, HP" 
+                    required
+                    name="brand"
+                    [(ngModel)]="order.brand"
+                    #brand='ngModel'>
+                    <div [hidden]='brand.valid || brand.pristine' class="alert alert-danger">
+                        Brand is required!
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="model" class="col-form-label">Model</label>
-                    <input type="text" class="form-control" id="model" placeholder="d 630, ideapad 320" required>
+                    <label for="deviceModel" class="col-form-label">Model</label>
+                    <input type="text" class="form-control" id="deviceModel" placeholder="ex.: d 630, ideapad 320, s8" 
+                    required
+                    name="deviceModel"
+                    [(ngModel)]="order.deviceModel"
+                    #deviceModel='ngModel'>
+                    <div [hidden]='deviceModel.valid || deviceModel.pristine' class="alert alert-danger">
+                        Model is required!
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="serial" class="col-form-label">S/N</label>
-                    <input type="text" class="form-control" id="serial" placeholder="F32GTS665442" required>
+                    <input type="text" class="form-control" id="serial" placeholder="ex.: F32GTS665442" 
+                    required
+                    name="serial"
+                    [(ngModel)]="order.serial"
+                    #serial='ngModel'>
+                    <div [hidden]='serial.valid || serial.pristine' class="alert alert-danger">
+                        S/N is required!
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="equipment" class="col-form-label">Equipment</label>
-                    <input type="text" class="form-control" id="equipment" placeholder="Mouse, Adapter, Box" required>
+                    <input type="text" class="form-control" id="equipment" placeholder="ex.: Mouse, Adapter, Box"
+                    name="equipment"
+                    [(ngModel)]="order.equipment"
+                    #equipment='ngModel'>
                 </div>
                 <div class="form-group">
                     <label for="appearance" class="col-form-label">Appearance and condition</label>
-                    <input type="text" class="form-control" id="appearance" placeholder="Traces of use" required>
+                    <input type="text" class="form-control" id="appearance" placeholder="ex.: Traces of use" 
+                    name="appearance"
+                    [(ngModel)]="order.appearance"
+                    #appearance='ngModel'>
                 </div>
           </div>
       </div>
@@ -104,15 +162,26 @@
                 <h2 class="card-title">Order information</h2>
                 <div class="form-group">
                   <label for="description" class="col-form-label">Description of the problem by the client</label>
-                  <textarea type="text" class="form-control" id="description" placeholder="does not turn on, flashes the screen" required></textarea>
+                  <textarea type="text" class="form-control" id="description" placeholder="does not turn on, flashes the screen" 
+                  required
+                  name="description"
+                    [(ngModel)]="order.description"
+                    #description='ngModel'>
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <label for="reqServices" class="col-form-label">Requested services</label>
-                    <input type="text" class="form-control" id="reqServices" placeholder="cleaning" required>
+                    <input type="text" class="form-control" id="reqServices" placeholder="cleaning" 
+                    name="reqServices"
+                    [(ngModel)]="order.reqServices"
+                    #reqServices='ngModel'>
                 </div>
                 <div class="form-group">
                   <label for="notes" class="col-form-label">Notes</label>
-                  <input type="text" class="form-control" id="notes" placeholder="goes a second time" required>
+                  <input type="text" class="form-control" id="notes" placeholder="goes a second time"
+                  name="notes"
+                    [(ngModel)]="order.notes"
+                    #notes='ngModel'>
                 </div>
             </div>
         </div>
@@ -124,7 +193,9 @@
                 <h2 class="card-title">Others</h2>
                 <div class="form-group">
                   <label for="priority">Priority</label>
-                  <select name='priority' class='form-control'>
+                  <select name='priority' class='form-control'
+                    [(ngModel)]="order.priority"
+                    #priority='ngModel'>
                       <option value="normal">Normal</option>
                       <option value="important">Important</option>
                       <option value="urgent">Urgent</option>
@@ -132,7 +203,10 @@
                 </div>
                 <div class="form-group">
                     <label for="assignedTo">Assigned to</label>
-                    <select name='assignedTo' class='form-control'>
+                    <select name='assignedTo' class='form-control'
+                    [(ngModel)]="order.assignedTo"
+                    #assignedTo='ngModel'
+                    required>
                         <option value="tech1">t1</option>
                         <option value="tech2">t2</option>
                         <option value="tech3">t3</option>
@@ -143,6 +217,6 @@
     </div>
   </div>
 <div style="margin-top: 1em;">
-  <button type="button" class="btn btn-primary btn-lg btn-block">Save</button>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
 </div>
 </form>

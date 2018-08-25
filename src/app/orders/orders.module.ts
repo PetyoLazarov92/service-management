@@ -9,6 +9,7 @@ import { ordersComponents } from '.';
 
 //Services
 import { OrdersService } from './orders.service';
+import { ClientsService } from '../clients/clients.service';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { OrdersService } from './orders.service';
     OrdersRoutingModule
   ],
   providers: [
-    OrdersService
+    OrdersService,
+    ClientsService
   ]
 })
 export class OrdersModule { }

@@ -1,8 +1,9 @@
 export class ClientModel{
     constructor(
         public name: string,
-        public address: string,
         public phone: string,
-        public email: string,
+        public orders: string
+        public email?: string,
+        public address?: string,
     ){}
   }
