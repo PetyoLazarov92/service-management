@@ -28,7 +28,7 @@
       <td>{{o.description}}</td>
       <td class="d-flex justify-content-center">
         <a routerLink="../details/{{o._id}}" title="Details" class="mr-1"><button class="btn btn-info btn-xs" ><i class="fa fa-info-circle fa-lg"></i></button></a>
-        <p title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></p>
+        <a routerLink="../edit/{{o._id}}" title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></a>
         <p title="Delete"><button class="btn btn-danger btn-xs" (click)="deleteItem(o._id)"><i class="fa fa-trash-o fa-lg"></i></button></p>
     </td>
       </tr>

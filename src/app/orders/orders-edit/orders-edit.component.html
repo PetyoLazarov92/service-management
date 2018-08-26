@@ -1,79 +1,35 @@
-<h2 class="card-title">Create New Order</h2>
+<h2 class="card-title">Edit Order</h2>
 <hr>
-<form #orderForm='ngForm' (ngSubmit)='newOrder()'>
+<form *ngIf='client && order' #orderForm='ngForm' (ngSubmit)='editOrder()'>
 <div class="row">
   <div class="col-md-6" style="padding=0.5em;">
       <div class="card">
           <div class="card-body">
               <h2 class="card-title">Client</h2>
               <div class="form-group">
-                <label for="existingClient">Existing Client</label>
-                <select name='existingClient' class='form-control selectpicker'
-                [(ngModel)]="order.client"
-                #existingClient='ngModel'
-                >
-                    <option class="bg-success text-white" value="newClient">New Client</option>
-                    <option  *ngFor="let c of clients | async" value={{c._id}} >{{c.name}}</option>
-                </select>
-              </div>
-              <div *ngIf="order.client === 'newClient'">
-              <div class="form-group">
-                <label for="name" class="col-form-label">Name</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="name"
-                    required
-                    [(ngModel)]="client.name"
-                    name="name"
-                    #name='ngModel'>
-                </div>
-                <div [hidden]='name.valid || name.pristine' class="alert alert-danger">
-                    Client Name is required!
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="address" class="col-form-label">Address</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-address-card-o"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="address"
-                    [(ngModel)]="client.address"
-                    name="address"
-                    #address='ngModel'>
-                </div>
-              </div>
-              <div class="form-group">
-                  <label for="tel" class="col-form-label">Phone number</label>
+                  <label for="name" class="col-form-label">Name</label>
                   <div class="input-group">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" id="name"
+                      disabled
+                      [ngModel]="client.name"
+                      name="name">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Phone</label>
+                    <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="tel"
-                        required
-                        [(ngModel)]="client.phone"
-                        name="phone"
-                        #phone='ngModel'>
+                        <input type="text" class="form-control" id="name"
+                        disabled
+                        [ngModel]="client.phone"
+                        name="phone">
                     </div>
-                    <div [hidden]='phone.valid || phone.pristine' class="alert alert-danger">
-                        Phone is required!
-                    </div>
-                </div>
-              <div class="form-group">
-                <label for="email" class="col-form-label">Email</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
-                    </div>
-                    <input type="email" class="form-control" id="email"
-                    [(ngModel)]="client.email"
-                    name="email"
-                    #email='ngModel'>
-                </div>
-                </div>
-            </div>
+                  </div>
           </div>
       </div>
   </div>
@@ -227,6 +183,6 @@
     </div>
   </div>
 <div style="margin-top: 1em;">
-  <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Saving changes</button>
 </div>
 </form>

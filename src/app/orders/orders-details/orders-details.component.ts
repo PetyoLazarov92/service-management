@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { OrderModel } from '../models/order.model';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersService } from '../orders.service';
-import { Observable } from 'rxjs';
 import { ClientModel } from '../../clients/models/client.model';
 import { ClientsService } from '../../clients/clients.service';
 
@@ -13,7 +12,7 @@ import { ClientsService } from '../../clients/clients.service';
   styleUrls: ['./orders-details.component.css']
 })
 export class OrdersDetailsComponent implements OnInit {
-  order : Observable<OrderModel>;
+  order : OrderModel;
   client : ClientModel;
   id : string;
   constructor(
@@ -25,9 +24,9 @@ export class OrdersDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.order = this.ordersService.getOrderDetails(this.id);
-    this.ordersService.getOrderDetails(this.id).subscribe(order => {
-      const clientId = order.client;
+    this.ordersService.getOrderDetails(this.id).subscribe(orderInfo => {
+      this.order = orderInfo;
+      const clientId = orderInfo.client;
       this.clientsService.getClientDetails(clientId).subscribe(clientInfo => {
         this.client = clientInfo;
       })

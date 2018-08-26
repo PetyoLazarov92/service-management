@@ -1,19 +1,20 @@
-<div *ngIf="order | async as o" class="container">      
+<div *ngIf="order && client" class="container">      
           <div class="col-md-12">
-          <h2>Detils for: <span class="font-italic text-info">{{o.type}} {{o.brand}}</span></h2>
+          <h2>Details for: <span class="font-italic text-info mr-5">{{order.type}} {{order.brand}}</span>
+            <a class="ml-2" routerLink="../../edit/{{order._id}}" title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></a></h2>
           <hr>
 <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="about-item text-left">
             <h3>Device Info</h3>
             <ul class="list-group">
-                <li class="list-group-item"><strong>Type:  </strong><span class="text-right" >{{o.type}}</span></li>
-                <li class="list-group-item"><strong>Brand: </strong><span class="text-right" >{{o.brand}}</span></li>
-                <li class="list-group-item"><strong>Model: </strong><span class="text-right" >{{o.deviceModel}}</span></li>
-                <li class="list-group-item"><strong>Warranty: </strong><span class="text-right" >{{o.warranty}}</span></li>
-                <li class="list-group-item"><strong>S/N: </strong><span class="text-right" >{{o.serial}}</span></li>
-                <li class="list-group-item"><strong>Equipment: </strong><span class="text-right" >{{o.equipment}}</span></li>
-                <li class="list-group-item"><strong>Appearance: </strong><span class="text-right" >{{o.appearance}}</span></li>
+                <li class="list-group-item"><strong>Type:  </strong><span class="text-right" >{{order.type}}</span></li>
+                <li class="list-group-item"><strong>Brand: </strong><span class="text-right" >{{order.brand}}</span></li>
+                <li class="list-group-item"><strong>Model: </strong><span class="text-right" >{{order.deviceModel}}</span></li>
+                <li class="list-group-item"><strong>Warranty: </strong><span class="text-right" >{{order.warranty}}</span></li>
+                <li class="list-group-item"><strong>S/N: </strong><span class="text-right" >{{order.serial}}</span></li>
+                <li class="list-group-item"><strong>Equipment: </strong><span class="text-right" >{{order.equipment}}</span></li>
+                <li class="list-group-item"><strong>Appearance: </strong><span class="text-right" >{{order.appearance}}</span></li>
               </ul>
         </div>
     </div>
@@ -22,9 +23,9 @@
         <div class="about-item text-left">
             <h3>Order Info</h3>
             <ul class="list-group">
-                <li class="list-group-item"><strong>Problem:  </strong><span class="text-right" >{{o.description}}</span></li>
-                <li class="list-group-item"><strong>Requested services: </strong><span class="text-right" >{{o.reqServices}}</span></li>
-                <li class="list-group-item"><strong>Notes: </strong><span class="text-right" >{{o.notes}}</span></li>
+                <li class="list-group-item"><strong>Problem:  </strong><span class="text-right" >{{order.description}}</span></li>
+                <li class="list-group-item"><strong>Requested services: </strong><span class="text-right" >{{order.reqServices}}</span></li>
+                <li class="list-group-item"><strong>Notes: </strong><span class="text-right" >{{order.notes}}</span></li>
               </ul>
         </div>
     </div>
@@ -33,8 +34,8 @@
         <div class="about-item text-left">
             <h3>Others</h3>
             <ul class="list-group">
-                <li class="list-group-item"><strong>Priority:  </strong><span class="text-right" >{{o.priority}}</span></li>
-                <li class="list-group-item"><strong>Assigned to: </strong><span class="text-right" >{{o.assignedTo}}</span></li>
+                <li class="list-group-item"><strong>Priority:  </strong><span class="text-right" >{{order.priority}}</span></li>
+                <li class="list-group-item"><strong>Assigned to: </strong><span class="text-right" >{{order.assignedTo}}</span></li>
               </ul>
         </div>
     </div>

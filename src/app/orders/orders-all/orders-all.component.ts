@@ -28,4 +28,12 @@ export class OrdersAllComponent implements OnInit {
   changePage(page){
     this.currentPage = page;
   }
+
+  deleteItem(id: string) {
+    this.ordersService.deleteOrder(id)
+      .subscribe(() => {
+        this.orders = this.ordersService.getAllOrders();
+        this.toastr.success('Order Deleted!', "Warning!");
+      })
+  }
 }

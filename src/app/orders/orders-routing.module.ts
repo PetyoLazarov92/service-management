@@ -6,11 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdersCreateComponent } from './orders-create/orders-create.component';
 import { OrdersAllComponent } from './orders-all/orders-all.component';
 import { OrdersDetailsComponent } from './orders-details/orders-details.component';
+import { OrdersEditComponent } from './orders-edit/orders-edit.component';
 
 export const ordersRoutes : Routes = [
     { path: 'create', component: OrdersCreateComponent },
     { path: 'all', component: OrdersAllComponent },
-    { path: 'details/:id', component: OrdersDetailsComponent }
+    { path: 'details/:id', component: OrdersDetailsComponent },
+    { path: 'edit/:id', component: OrdersEditComponent }
 ]
 
 @NgModule({

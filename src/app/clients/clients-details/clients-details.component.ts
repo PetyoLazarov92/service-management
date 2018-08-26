@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./clients-details.component.css']
 })
 export class ClientsDetailsComponent implements OnInit {
-
   client : Observable<ClientModel>;
   id : string;
 
