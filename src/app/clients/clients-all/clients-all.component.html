@@ -11,8 +11,7 @@
                      <th>Name</th>
                        <th>Address</th>
                        <th>Email</th>
-                       <th>Phone</th>
-                        <th>Orders</th>                        
+                       <th>Phone</th>                    
                          <th>Actions</th>
                      </thead>
       <tbody>
@@ -25,7 +24,6 @@
       <td>{{c.address}}</td>
       <td>{{c.email}}</td>
       <td>{{c.phone}}</td>
-      <td>{{c.orders | json}}</td>
       <td class="d-flex justify-content-center">
         <a routerLink="../details/{{c._id}}" title="Details" class="mr-1"><button class="btn btn-info btn-xs" ><i class="fa fa-info-circle fa-lg"></i></button></a>
         <a routerLink="../edit/{{c._id}}" title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></a>

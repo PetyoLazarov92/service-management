@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 //Services
 import { ClientsService } from './clients.service';
+import { OrdersService } from '../orders/orders.service';
 
 //Components
 import { clientsComponents } from '.';
@@ -24,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
     ...clientsComponents
   ],
   providers: [
-    ClientsService
+    ClientsService,
+    OrdersService
   ]
 })
 export class ClientsModule { }

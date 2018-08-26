@@ -18,8 +18,11 @@
       <div class="col-md-6 col-sm-6 col-xs-6">
           <div class="about-item text-left">
               <h3>Orders</h3>
-              <ul class="list-group">
-                  <li class="list-group-item"><strong>Orders:  </strong><span class="text-right" >{{c.orders | json}}</span></li>
+              <ul *ngIf='ordersNames !== []' class="list-group">
+                  <li *ngFor='let o of ordersNames; let i = index' class="list-group-item"><strong>Order {{i+1}}:</strong><span class="text-right" >{{o}}</span></li>
+                </ul>
+                <ul *ngIf='ordersNames.length === 0' class="list-group">
+                    <li class="list-group-item"><strong>Order: </strong><span class="text-right font-italic" >No Orders yet...</span></li>
                 </ul>
           </div>
         </div>
