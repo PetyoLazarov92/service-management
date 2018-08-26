@@ -1,4 +1,4 @@
-<h2 class="card-title">Edit Order</h2>
+<h2 *ngIf='order' class="card-title">Edit Order: <span class="font-italic text-info mr-5">{{order.type}} {{order.brand}}</span></h2>
 <hr>
 <form *ngIf='client && order' #orderForm='ngForm' (ngSubmit)='editOrder()'>
 <div class="row">

@@ -1,6 +1,7 @@
 <div *ngIf="client | async as c" class="container">      
     <div class="col-md-12">
-    <h2>Detils for: <span class="font-italic text-info">{{c.name}}</span></h2>
+    <h2>Details for: <span class="font-italic text-info mr-5">{{c.name}}</span>
+        <a class="ml-2" routerLink="../../edit/{{c._id}}" title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></a></h2>
     <hr>
 <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-6">

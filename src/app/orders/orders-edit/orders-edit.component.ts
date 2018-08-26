@@ -5,6 +5,7 @@ import { OrdersService } from '../orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { ClientsService } from '../../clients/clients.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-orders-edit',
@@ -12,12 +13,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./orders-edit.component.css']
 })
 export class OrdersEditComponent implements OnInit {
-
   client: ClientModel;
   order: OrderModel;
   id : string;
   
   constructor(
+    private toastr : ToastrService,
     private route : ActivatedRoute, 
     private orderService : OrdersService, 
     private clientsService : ClientsService,
@@ -38,6 +39,7 @@ export class OrdersEditComponent implements OnInit {
 
   editOrder(){
     this.orderService.editOrder(this.order, this.id).subscribe(editedOrder =>{
+      this.toastr.success("Order edited successfully!", "Success!");
       this.router.navigate(['/orders/all']);
     })
   }

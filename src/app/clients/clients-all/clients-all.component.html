@@ -27,8 +27,8 @@
       <td>{{c.phone}}</td>
       <td>{{c.orders | json}}</td>
       <td class="d-flex justify-content-center">
-            <a routerLink="../details/{{c._id}}" title="Details" class="mr-1"><button class="btn btn-info btn-xs" ><i class="fa fa-info-circle fa-lg"></i></button></a>
-        <p title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></p>  
+        <a routerLink="../details/{{c._id}}" title="Details" class="mr-1"><button class="btn btn-info btn-xs" ><i class="fa fa-info-circle fa-lg"></i></button></a>
+        <a routerLink="../edit/{{c._id}}" title="Edit" class="mr-1"><button class="btn btn-warning btn-xs" ><i class="fa fa-pencil fa-lg"></i></button></a>
         <p title="Delete" ><button class="btn btn-danger btn-xs" (click)="deleteItem(c._id)"><i class="fa fa-trash-o fa-lg"></i></button></p>
     </td>
       </tr>

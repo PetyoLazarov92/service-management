@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.adminService.getAllUsers().subscribe(data => {
       this.users = data;
-      console.log(data);
+      console.log(data[9]._kmd.roles[0].roleId);
     });
   }
 
